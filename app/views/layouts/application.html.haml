@@ -1,0 +1,45 @@
+!!!
+/ paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+/[if lt IE 7 ] <html class="ie6" lang="en">
+/[if IE 7 ] <html class="ie7" lang="en">
+/[if IE 8 ] <html class="ie8" lang="en">
+/[if IE 9 ] <html class="ie9" lang="en">
+/ [if (gt IE 9)|!(IE)]><!
+%html{:lang => "en"}
+  / <![endif]
+  %head
+    %title Weightable
+    %meta{:charset => "utf-8"}/
+    / Uncomment to make IE8 render like IE7
+    / <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    / Set the viewport width to device width for mobile
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %title= content_for?(:title) ? yield(:title) : "Untitled"
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+    = javascript_include_tag "vendor/custom.modernizr"
+  %body
+    .row
+      .large-1.columns
+      .large-11.columns
+        = link_to 'Home', root_url
+        |
+        - if user_signed_in?
+          = link_to 'My Account', user_url(current_user.id)
+          |
+          = link_to 'Edit profile', edit_user_registration_path
+          |
+          = link_to "Sign out", destroy_user_session_path, method: :delete
+        - else
+          = link_to "Sign up", new_user_registration_path
+          |
+          = link_to "Sign in", new_user_session_path
+
+        %p.notice= notice unless notice.blank?
+        %p.alert= alert unless alert.blank?
+
+        = yield
+        = javascript_include_tag "application"
+      .large-11.columns
+          

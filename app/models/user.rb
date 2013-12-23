@@ -3,8 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :user_weights
-  has_many :weights, :through => :user_weights
+  has_many :weights
 
   has_many :friendships
   has_many :friends, :through => :friendships
