@@ -10,6 +10,8 @@ gem 'haml-rails'
 gem 'haml'
 gem 'pry'
 
+gem 'zurb-foundation'
+
 gem 'devise'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
