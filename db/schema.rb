@@ -17,10 +17,12 @@ ActiveRecord::Schema.define(version: 20131223175330) do
     t.string   "comment"
     t.integer  "weight_id"
     t.integer  "user_id"
+    t.integer  "friend_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "comments", ["friend_id"], name: "index_comments_on_friend_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
   add_index "comments", ["weight_id"], name: "index_comments_on_weight_id"
 
@@ -32,21 +34,10 @@ ActiveRecord::Schema.define(version: 20131223175330) do
     t.datetime "updated_at"
   end
 
-  create_table "user_weights", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "weight_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "user_weights", ["user_id"], name: "index_user_weights_on_user_id"
-  add_index "user_weights", ["weight_id"], name: "index_user_weights_on_weight_id"
-
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "pic"
     t.integer  "goal"
-    t.integer  "weight_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email",                  default: "", null: false
@@ -63,19 +54,16 @@ ActiveRecord::Schema.define(version: 20131223175330) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index "users", ["weight_id"], name: "index_users_on_weight_id"
 
   create_table "weights", force: true do |t|
     t.string   "date"
     t.integer  "weight"
     t.string   "pic"
     t.integer  "user_id"
-    t.integer  "comment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "weights", ["comment_id"], name: "index_weights_on_comment_id"
   add_index "weights", ["user_id"], name: "index_weights_on_user_id"
 
 end

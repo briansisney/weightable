@@ -5,7 +5,6 @@ class CreateWeights < ActiveRecord::Migration
       t.integer :weight
       t.string :pic
       t.references :user, index: true
-      t.references :comment, index: true
 
       t.timestamps
     end

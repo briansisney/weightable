@@ -4,6 +4,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'figaro'
+  gem 'hirb'
 end
 # Use HAML
 gem 'haml-rails'

@@ -1,2 +1,28 @@
-%h1 Weights#index
-%p Find me in app/views/weights/index.html.haml
+%h1.text-center
+  User Weights
+.row
+  =link_to "Add Weight", new_weight_path
+.row
+  .large-9.large-centered.columns
+    %table
+      %thead
+        %tr
+          %th Name
+          %th Goal
+          %th Last updated
+          %th Date
+          %th Current Weight
+          %th Pic
+          %th Comment
+      %tbody
+        - @weights.reverse.each do |weight|
+          %tr
+            %td 
+              = link_to weight.user.name, user_path(weight.user.id)
+            %td= "#{weight.user.goal}"
+            %td= weight.updated_at.strftime("%m/%d/%y at %I:%M%P")
+            %td= weight.date
+            %td= weight.weight
+            %td= image_tag weight.pic
+            %td= link_to 'Comment', new_weight_comment_path(weight.id)
+            %td= link_to 'Show', weight_path(weight.id)

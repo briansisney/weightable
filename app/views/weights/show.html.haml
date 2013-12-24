@@ -1,2 +1,15 @@
-%h1 Weights#show
-%p Find me in app/views/weights/show.html.haml
+%h1 Individual Post
+.row
+  .large-9.large-centered.columns
+    Name: #{@weight.user.name}
+    %br/ 
+    Goal: #{@weight.user.goal}
+    %br/ 
+    Weight on #{@weight.date}: #{@weight.weight}
+    %br/ 
+    =image_tag @weight.pic
+    %br/ 
+    Comments
+            
+= link_to 'Back', weights_path
+= link_to 'Edit', edit_weight_path

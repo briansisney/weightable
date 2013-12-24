@@ -1,2 +1,21 @@
-%h1 Users#show
-%p Find me in app/views/users/show.html.haml
+%br
+%br
+.row
+  .large-3.columns
+    = image_tag @user.pic
+  .large-9.columns
+    .row
+      .large-3.columns
+        %h4.subheader Name
+      .large-9.columns
+        %h3= @user.name
+    .row
+      .large-3.columns
+        %h4.subheader Email
+      .large-9.columns
+        %h3= @user.email
+    .row
+      .large-3.columns
+        %h4.subheader Goal Weight
+      .large-9.columns
+        %h3= @user.goal

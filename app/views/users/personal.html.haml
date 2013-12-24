@@ -1,0 +1,33 @@
+%h1.text-center
+  Personal Weights
+.row
+  =link_to "Add Weight", new_weight_path
+.row
+  .large-9.large-centered.columns
+    %table
+      %thead
+        %tr
+          %th Name
+          %th Goal
+          %th Last updated
+          %th Date
+          %th Current Weight
+          %th Pic
+          %th Comment
+          %th Edit
+          %th Destroy
+      %tbody
+        - @weights.reverse.each do |weight|
+          -if weight.user == current_user
+            %tr
+              %td 
+                = link_to weight.user.name, user_path(weight.user.id)
+              %td= "#{weight.user.goal}"
+              %td= weight.updated_at.strftime("%m/%d/%y at %I:%M%P")
+              %td= weight.date
+              %td= weight.weight
+              %td= image_tag weight.pic
+              %td= link_to 'Comment', new_weight_comment_path(weight.id)
+              %td= link_to 'Edit', edit_weight_path(weight.id)
+              %td= link_to 'Destroy', weight_path(weight.id), method: :delete, data: { confirm: 'Are you sure?' }
+              %td= link_to 'Show', weight_path(weight.id)

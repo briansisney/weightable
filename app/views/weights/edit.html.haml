@@ -1,2 +1,8 @@
-%h1 Weights#edit
-%p Find me in app/views/weights/edit.html.haml
+%h1 Edit your weight
+=render 'form'
+
+= link_to 'Show', @weight
+
+= link_to 'Back', weights_path
+
+/make so that you can only edit on the day of

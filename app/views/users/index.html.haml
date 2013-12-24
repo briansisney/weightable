@@ -1,2 +1,18 @@
-%h1 Users#index
-%p Find me in app/views/users/index.html.haml
+%h1.text-center
+  All Users
+.row
+  .large-6.large-centered.columns
+    %table
+      %thead
+        %tr
+          %th Name
+          %th pic
+          %th goal
+          %th Friend
+      %tbody
+        - @users.each do |user|
+          %tr
+            %td= user.name
+            %td.large-3= image_tag user.pic
+            %td= user.goal
+            %td Friend

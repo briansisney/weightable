@@ -21,25 +21,30 @@
     = javascript_include_tag "vendor/custom.modernizr"
   %body
     .row
-      .large-1.columns
-      .large-11.columns
-        = link_to 'Home', root_url
-        |
-        - if user_signed_in?
-          = link_to 'My Account', user_url(current_user.id)
-          |
-          = link_to 'Edit profile', edit_user_registration_path
-          |
-          = link_to "Sign out", destroy_user_session_path, method: :delete
-        - else
-          = link_to "Sign up", new_user_registration_path
-          |
-          = link_to "Sign in", new_user_session_path
+      %section.top-bar-section
+        %ul.no-bullet
+          -if user_signed_in?
+            %li
+              = link_to 'Home', root_url
+            %li
+              = link_to 'Weights', weights_path
+            %li
+              = link_to 'My Weights', personal_path(current_user)
+            %li
+              = link_to 'My Account', user_url(current_user)
+            %li
+              = link_to 'Edit Profile', edit_user_registration_path
+            %li
+              = link_to 'Sign out', destroy_user_session_path, method: :delete
+          -else
+            %li
+              = link_to "Sign up", new_user_registration_path
+            %li
+              = link_to "Sign in", new_user_session_path
+    .row          
+      %p.notice= notice unless notice.blank?
+      %p.alert= alert unless alert.blank?
 
-        %p.notice= notice unless notice.blank?
-        %p.alert= alert unless alert.blank?
-
-        = yield
-        = javascript_include_tag "application"
-      .large-11.columns
+      = yield
+      = javascript_include_tag "application"
           
