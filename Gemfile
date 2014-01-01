@@ -15,6 +15,13 @@ gem 'zurb-foundation'
 
 gem 'devise'
 
+gem "riotjs-rails", "~> 0.9.5"
+
+gem 'carrierwave'
+gem 'rmagick'
+
+# gem "fog", "~> 1.3.1"
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 

@@ -1,2 +1,24 @@
-%h1 Comments#index
-%p Find me in app/views/comments/index.html.haml
+%h1 Comments for weight
+
+.row
+  =link_to "Add Comment", new_weight_comment_path
+.row
+  .large-9.large-centered.columns
+    %table
+      %thead
+        %tr
+          %th User Name
+          %th User weight
+          %th Comment
+          %th Friend/show
+      %tbody
+        - @weight.comments.each do |comment|
+          %tr
+            %td= link_to comment.user.name, user_path(comment.user.id)
+            %td= "#{comment.weight.weight}"
+            %td= comment.comment
+            %td= link_to "Show", weight_comment_path(comment.weight.id, comment.id)
+            %td= link_to "Edit", edit_weight_comment_path(comment.weight.id, comment.id)
+
+
+

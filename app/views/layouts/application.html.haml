@@ -29,9 +29,7 @@
             %li
               = link_to 'Weights', weights_path
             %li
-              = link_to 'My Weights', personal_path(current_user)
-            %li
-              = link_to 'My Account', user_url(current_user)
+              = link_to current_user.name, user_url(current_user)
             %li
               = link_to 'Edit Profile', edit_user_registration_path
             %li

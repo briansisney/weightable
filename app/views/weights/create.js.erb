@@ -1,0 +1,7 @@
+// alert('Weight created!');
+(function () {
+  var weightHtml = "<%= j render(partial: 'weight', locals: { weight: @weight }) %>";
+  $('.weights').prepend(weightHtml);
+  $('#weight_weight').val("");
+  $('#weight_pic').val("");
+})();

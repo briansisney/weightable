@@ -7,9 +7,10 @@
     %br/ 
     Weight on #{@weight.date}: #{@weight.weight}
     %br/ 
-    =image_tag @weight.pic
+    / =image_tag @weight.pic
+    %img{src: @weight.pic_url(:large)}
     %br/ 
-    Comments
-            
-= link_to 'Back', weights_path
-= link_to 'Edit', edit_weight_path
+    = render "comment", weight: @weight   
+    %br/  
+    = render "editting", weight: @weight
+    %br/

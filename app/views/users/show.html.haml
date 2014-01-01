@@ -19,3 +19,14 @@
         %h4.subheader Goal Weight
       .large-9.columns
         %h3= @user.goal
+  .large-12.columns
+    -if @user ==current_user
+      .form
+        %button.weight_button Enter new weight
+        .form_div
+          =render "weights/form"
+  .large-9.columns
+    .row
+    - @weights.reverse.each do |weight|
+      -if @user == weight.user
+        = render "weights/weight", weight: weight

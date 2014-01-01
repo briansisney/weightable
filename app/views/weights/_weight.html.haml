@@ -1,0 +1,24 @@
+.weight-box
+  .first-inner-box 
+    .weight-box-profile_pic= image_tag weight.user.pic
+    .spacing
+  .inner-box
+    .weight-box-name= link_to weight.user.name, user_path(weight.user.id)
+    .weight-box-pic
+      =link_to(image_tag(weight.pic_url(:medium)), weight_path(weight.id))
+    .weight-box-info
+      .weight 
+        Current Weight: 
+        %span.weight-num #{weight.weight}
+      .weight 
+        Goal Weight: 
+        %span.weight-num #{weight.user.goal}
+      .date
+        Date: #{weight.date} 
+    .weight-box-comments
+      .form
+        %button.weight_button Enter comment
+        .form_div
+          =render 'comments/form', weight: weight
+      = render "weights/comment", weight: weight
+      = render "weights/editting", weight: weight

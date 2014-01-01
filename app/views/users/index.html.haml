@@ -12,7 +12,7 @@
       %tbody
         - @users.each do |user|
           %tr
-            %td= user.name
+            %td= link_to user.name, user
             %td.large-3= image_tag user.pic
             %td= user.goal
             %td Friend
