@@ -1,5 +1,6 @@
 %h1 Edit your Weight:
 
-=render 'form'
+- weight = @weight
+=render 'form', weight: weight
 
 = link_to 'Back', weight_comment_path

@@ -6,8 +6,10 @@ Weightable::Application.routes.draw do
   resources :weights do
     resources :comments
   end
-    
+  
+  resources :friendships
+
   get 'users' => 'users#index', as: 'users'
   get 'users/:id' => 'users#show', as: 'user'
-  get 'weights/personal/:user_id' => 'users#personal', as: 'personal'
+  # get 'weights/personal/:user_id' => 'users#personal', as: 'personal'
 end

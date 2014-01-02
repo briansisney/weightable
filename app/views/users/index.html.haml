@@ -8,11 +8,18 @@
           %th Name
           %th pic
           %th goal
-          %th Friend
+          %th Add Friend
+          %th Accept Friend
+          %th Remove Friend
       %tbody
         - @users.each do |user|
           %tr
             %td= link_to user.name, user
             %td.large-3= image_tag user.pic
             %td= user.goal
-            %td Friend
+            %td= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post
+            %td= link_to "Accept Friend-not done", friendships_path(:friend_id => user), :method => :post
+            %td= link_to "Add Friend-not done", friendships_path(:friend_id => user), :method => :post
+
+
+

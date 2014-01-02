@@ -27,6 +27,19 @@
           =render "weights/form"
   .large-9.columns
     .row
+      %h2 Friends
+      %ul
+        - for friendship in @user.friendships
+          %li
+            = h friendship.friend.name
+            (#{link_to "remove", friendship, :method => :delete})
+      %p= link_to "Find Friends", users_path
+      %h2 Friended by Users
+      %ul
+        - for user in @user.inverse_friends
+          %li= h user.name
+  .large-9.columns
+    .row
     - @weights.reverse.each do |weight|
       -if @user == weight.user
         = render "weights/weight", weight: weight

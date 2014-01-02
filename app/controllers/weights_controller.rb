@@ -51,7 +51,7 @@ class WeightsController < ApplicationController
       @weight.destroy
       respond_to do |format|
         format.html { redirect_to weights_url }
-        format.js { render layout: false }
+        # format.js { render layout: false }
       end
     end
   end

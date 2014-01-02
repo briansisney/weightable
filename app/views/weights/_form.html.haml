@@ -14,5 +14,5 @@
     = f.hidden_field :date, value: Date.today.to_time.strftime("%A, %m/%d/%y")
     / = tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token)
   .actions
-    = f.submit 'Upload'
+    = f.submit 'Submit'
 

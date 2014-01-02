@@ -9,6 +9,7 @@
         %br
         &nbsp;&nbsp;
         = link_to "Edit", edit_weight_comment_path(comment.weight.id, comment.id)
+        / make a button
         &nbsp;&nbsp;
         =link_to 'X', weight_comment_path(comment.weight.id, comment.id), method: :delete
       -elsif comment.weight.user == current_user
