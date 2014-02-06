@@ -15,7 +15,8 @@
         - @users.each do |user|
           %tr
             %td= link_to user.name, user
-            %td.large-3= image_tag user.pic
+            %td.large-3
+              %img{src: user.pic_url}
             %td= user.goal
             %td= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post
             %td= link_to "Accept Friend-not done", friendships_path(:friend_id => user), :method => :post

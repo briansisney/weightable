@@ -4,49 +4,65 @@ img{
 }
 
 .weight-box{
-  width: 650px;
+  width: 100%;
   display: inline-block;
   position: relative;
-  padding: 20px;
-  border-bottom: #6500A8 solid 1px;
-  border-left: #6500A8 solid 1px;
-  float: left;
+  // padding: 20px;
+  border-bottom: white solid 2px;
+  padding:10px;
 }
 /*.spacing{
   width:100px;
   height: 20px;
 }*/
-.first-inner-box{
-  width: 100px;
-  float: left;
+.chart-box{
+  background-color: white;
+  border-radius:5px;
+  margin: 5px;
+  padding:10px;
+  width: 100%;
 }
-.inner-box{
-  width: 500px;
-  float: left;
-  padding-left: 10px;
-}
-.weight-box-profile_pic{
-  width: 100px;
-  height: auto;
+.profile-info{
+  background-color:white;
+  border-radius:5px;
+  padding: 0px;
+  .first-inner-box{
+    width: 100px;
+    float: left;
+    color: #ED3812;
+
+  }
+  .inner-box{
+
+    float: left;
+    padding: 10px;
+
+  }
+  .weight-box-profile_pic{
+    height: auto;
+    // border-right: 1px #ED3812 solid;
+  }
+
+  .weight-box-name{
+    height: 30px;
+    font-weight: bold;
+  }
+  .weight-box-name a{
+    color: #ED3812;
+  }
+  .weight{
+    width: 100%;
+    float: left;
+    padding-bottom: 5px;
+    // border: 1px solid red;
+  }
+
+  .weight-num{
+    font-weight: bold;
+    color: #ED3812;
+  }
 }
 
-.weight-box-name{
-  height: 30px;
-  font-weight: bold;
-}
-.weight-box-name a{
-  color: #6500A8;
-}
-.weight{
-  width: 240px;
-  float: left;
-  padding-bottom: 5px;
-}
-
-.weight-num{
-  font-weight: bold;
-  color: #6500A8;
-}
 /*.weight-box-pic{
 
 }
@@ -54,7 +70,7 @@ img{
 
 }*/
 .weight-box-info{
-  color: #6500A8;
+  color: #ED3812;
   padding-top: 10px;
 }
 .weight-box-comments{
@@ -65,14 +81,21 @@ img{
   display: none; 
 }
 .show_form{
-  width: 300px;
+  width: 50%;
   display: block;
 }
 .comment-box{
-  background-color: #E8CDFA;
+  background-color: white;
+  border-radius: 5px;
   padding: 5px;
   margin-top: 5px;
 }
-.edit-box{
-  background-color: #E8CDFA;
+.singlecomment{
+  padding: 5px;
+  background-color: #FCBAAC;
+  margin: 5px 5px 0px 5px;
+  border-radius: 5px;
 }
+// .edit-box{
+//   background-color: #ED3812;
+// }

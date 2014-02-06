@@ -1,0 +1,14 @@
+(function () {
+  var commentHTML = "<%= j render(partial: 'weights/comment', locals: { comment: @comment }) %>";
+  $('.singlecomment').append(commentHTML);
+  $('#comment_comment').val("");
+
+// TO DO:
+// this is appending to all single comments and it is not working the first time. The third time i goes it multiple time in same section
+  
+  // <% if remotipart_submitted? %>
+  //   console.log('submitted via remotipart')
+  // <% else %>
+  //   console.log('submitted via native jquery-ujs')
+  // <% end %>
+})();

@@ -38,6 +38,8 @@ GEM
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
       json (>= 1.7)
+    chart-js-rails (0.0.6)
+      railties (> 3.1)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -54,10 +56,22 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     erubis (2.7.0)
+    excon (0.13.4)
     execjs (2.0.2)
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    fog (1.3.1)
+      builder
+      excon (~> 0.13.0)
+      formatador (~> 0.2.0)
+      mime-types
+      multi_json (~> 1.0)
+      net-scp (~> 1.0.4)
+      net-ssh (>= 2.1.3)
+      nokogiri (~> 1.5.0)
+      ruby-hmac
+    formatador (0.2.4)
     haml (4.0.4)
       tilt
     haml-rails (0.5.1)
@@ -82,6 +96,10 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.8.2)
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-ssh (2.7.0)
+    nokogiri (1.5.10)
     orm_adapter (0.5.0)
     polyglot (0.3.3)
     pry (0.9.12.4)
@@ -107,8 +125,10 @@ GEM
     rake (10.1.1)
     rdoc (3.12.2)
       json (~> 1.4)
+    remotipart (1.2.1)
     riotjs-rails (0.9.5)
     rmagick (2.13.2)
+    ruby-hmac (0.4.0)
     sass (3.2.13)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -135,8 +155,6 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (2.1.0)
-      coffee-rails
     tzinfo (0.3.38)
     uglifier (2.4.0)
       execjs (>= 0.3.0)
@@ -153,9 +171,11 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   carrierwave
+  chart-js-rails
   coffee-rails (~> 4.0.0)
   devise
   figaro
+  fog (~> 1.3.1)
   haml
   haml-rails
   hirb
@@ -163,11 +183,11 @@ DEPENDENCIES
   jquery-rails
   pry
   rails (= 4.0.2)
+  remotipart (~> 1.2)
   riotjs-rails (~> 0.9.5)
   rmagick
   sass-rails (~> 4.0.0)
   sdoc
   sqlite3
-  turbolinks
   uglifier (>= 1.3.0)
   zurb-foundation

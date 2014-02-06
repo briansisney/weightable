@@ -1,3 +1,97 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background: image_url('old_map/old_map.png');
+  color: white;
+  
+}
+.top-bar-section ul{
+  background: image_url('old_map/old_map.png');
+}
+
+
+.top-bar-section li a:not(.button), .top-bar-section ul li > a{
+  background: none;
+  color: #ED3812;
+  font-size: 20px;
+  &:hover{
+    background-color: #ED3812;
+  }
+  padding: 10px;
+}
+
+#logo a{
+  &:hover{
+    background: image_url('old_map/old_map.png');
+  }
+}
+h1{
+  color: #ED3812;
+  border-color: #065E2B;
+}
+button, button:hover, button:focus, .button:hover, .button:focus{
+  background-color: #ED3812;
+  border-color: #ED3812;
+  border-radius: 5px;
+}
+h2{
+
+}
+
+.weight-box-comments a{
+  color: #ED3812;
+  font-weight: bold;
+  // background-color: #09823B;
+  // border-color: #065E2B;
+}
+.comment-box{
+  color: #ED3812;
+  .singlecomment{
+    color: #ED3812;
+  }
+  .commenter a, .commentedit a{
+   color: #ED3812;
+  font-weight: bold; 
+  }
+}
+.mainimg img{
+  border: 5px solid white;
+  border-radius: 5px;
+}
+
+.backs{
+  background-color: #ED3812;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+  h2, h3, h6, label, p, a, .subheader{
+    color: white;
+  }
+  input{
+    background-color:white;
+    color:#ED3812; 
+  }
+  #user_pic{
+    background-color:#ED3812;
+    color: white;
+  }
+  img{
+    border: 5px solid white;
+    border-radius: 5px;
+  }
+   button, button:hover, button:focus, .button:hover, .button:focus{
+    background-color: white;
+    color:#ED3812;
+    border: 1px solid white;
+    margin: 5px;
+    border-radius: 5px;
+  }
+  #chart-box{
+  background-color: white;
+  border-radius:5px;
+  padding-top: 10px;
+ 
+  width: 100%;
+  }
+}

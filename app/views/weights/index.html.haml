@@ -1,14 +1,13 @@
 %h1.text-center
-  User Weights
+  Weights Feed
 .row
   .large-9.large-centered.columns
     .form
       %button.weight_button Enter new weight
       .form_div
-        =render 'form'
+        = render 'weights/form'
 .row
-  .large-9.large-centered.columns
-    .weights
-      - @weights.reverse.each do |weight|
-        = render "weight", weight: weight
+  .large-6.large-centered.columns.weights.backs
+    - @weights.reverse.each do |weight|
+      = render "weight", weight: weight
       

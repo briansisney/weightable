@@ -12,8 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.remotipart
 //= require foundation
-//= require turbolinks
+//= require Chart
 //= require_tree .
 
 $(function(){ $(document).foundation(); });

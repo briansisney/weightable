@@ -1,7 +1,12 @@
-// alert('Weight created!');
 (function () {
   var weightHtml = "<%= j render(partial: 'weight', locals: { weight: @weight }) %>";
   $('.weights').prepend(weightHtml);
   $('#weight_weight').val("");
-  $('#weight_pic').val("");
+
+  
+  // <% if remotipart_submitted? %>
+  //   console.log('submitted via remotipart')
+  // <% else %>
+  //   console.log('submitted via native jquery-ujs')
+  // <% end %>
 })();

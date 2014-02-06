@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   def new
     @comment = Comment.new
-    @weight = Weight.where(id: params["weight_id"]).take
+    @weight = Weight.where(id: params["weight_id"]).take || Weight.last.id+1
   end
 
   def show
@@ -25,7 +25,8 @@ class CommentsController < ApplicationController
     # @user = current_user
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to weights_path(@weight), notice: 'comment was successfully created.' }
+        format.html { redirect_to :back, notice: 'comment was successfully created.' }
+        format.js { render layout: false }
       else
         format.html { render action: 'new' }
       end
@@ -36,23 +37,27 @@ class CommentsController < ApplicationController
     if @comment.user == current_user
       respond_to do |format|
         if @comment.update(comment_params)
-          format.html { redirect_to @weight, notice: 'comment was successfully updated.' }
+          format.html { redirect_to :back, notice: 'comment was successfully updated.' }
         else
           format.html { render action: 'edit' }
         end
       end
     else
       respond_to do |format|
-          format.html { redirect_to @weight, notice: 'you cannot edit other users comments.' }
+          format.html { redirect_to :back, notice: 'you cannot edit other users comments.' }
       end
     end
   end
 
   def destroy
     if @comment.user == current_user || @comment.weight.user == current_user
-      @comment.destroy
-      respond_to do |format|
-        format.html { redirect_to weights_path }
+      respond_to do |format|  
+        if @comment.destroy
+          format.html { redirect_to weights_path,  notice: "weight was deleted"}
+          format.js { render layout: false }
+        else 
+          format.html { redirect_to  :back, notice: "weight was not deleted"}
+        end
       end
     end
   end

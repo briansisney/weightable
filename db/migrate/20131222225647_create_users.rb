@@ -4,7 +4,9 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.string :pic
       t.integer :goal
-
+      t.string :height_feet
+      t.string :height_in
+      
       t.timestamps
     end
   end

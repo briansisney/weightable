@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 20131223175330) do
     t.string   "name"
     t.string   "pic"
     t.integer  "goal"
+    t.string   "height_feet"
+    t.string   "height_in"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email",                  default: "", null: false

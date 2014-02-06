@@ -1,18 +1,15 @@
--unless weight.comments.first.nil?
-  .comment-box
-    Comments:
-    %br 
-    - weight.comments.each do |comment|
-      = link_to "#{comment.user.name}:", comment.user
-      = "#{comment.comment}"
-      -if comment.user == current_user
-        %br
-        &nbsp;&nbsp;
-        = link_to "Edit", edit_weight_comment_path(comment.weight.id, comment.id)
-        / make a button
-        &nbsp;&nbsp;
-        =link_to 'X', weight_comment_path(comment.weight.id, comment.id), method: :delete
-      -elsif comment.weight.user == current_user
-        %br
-        =link_to 'X', weight_comment_path(comment.weight.id, comment.id), method: :delete
+.singlecomment
+  .commenter
+    = link_to "#{comment.user.name}:", comment.user
+  .commentpost
+    = "#{comment.comment}"
+  .commentedit
+    -if comment.user == current_user
+      &nbsp;&nbsp;
+      = link_to "Edit", edit_weight_comment_path(comment.weight.id, comment.id)
+      / make a button
+      =" | "
+      =link_to 'X', weight_comment_path(comment.weight.id, comment.id), method: :delete
+    -elsif comment.weight.user == current_user
       %br
+      =link_to 'X', weight_comment_path(comment.weight.id, comment.id), method: :delete

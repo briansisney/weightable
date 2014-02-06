@@ -1,0 +1,22 @@
+:javascript
+  var ctx = document.getElementById("lineChart").getContext("2d");
+
+  var data = {
+    labels : #{@chart_headers},
+    datasets : [
+      {
+        fillColor : "rgba(252,186,172,1)",
+        strokeColor : "rgba(237,56,18,1)",
+        pointColor : "rgba(252,186,172,1)",
+        pointStrokeColor : "rgba(237,56,18,1)",
+        data: #{@chart_data}
+      }
+    ]
+  }
+
+  var options = {
+  //Options for displaying chart data, see http://www.chartjs.org/docs/ for more info
+  scaleOverride: false
+  }
+
+  new Chart(ctx).Line(data,options);

@@ -1,18 +1,10 @@
-= form_for(@weight, remote: false) do |f| 
-  - if @weight.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@weight.errors.count, "error")} prohibited this weight from being saved:"
-      %ul
-        - @weight.errors.full_messages.each do |msg|
-          %li= msg
-
+= form_for(@weight, remote: true) do |f| 
   .field
     = f.label :weight
-    = f.text_field :weight
-    = f.label :pic
-    = f.file_field :pic
+    = f.number_field :weight
+    / = f.label :pic
+    / = f.file_field :pic
     = f.hidden_field :date, value: Date.today.to_time.strftime("%A, %m/%d/%y")
-    / = tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token)
   .actions
     = f.submit 'Submit'
 

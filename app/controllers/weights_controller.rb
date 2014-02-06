@@ -35,25 +35,31 @@ class WeightsController < ApplicationController
 
   def create
     @weight = Weight.new(weight_params)
+
     @weight.user = current_user
     respond_to do |format|
       if @weight.save
         format.html { redirect_to weights_path, notice: 'weight was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @weight }
         format.js { render layout: false }
       else
         format.html { render action: 'new' }
+        format.json { render json: @weight.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  def destroy
-    if @weight.user == current_user
-      @weight.destroy
+  def destroy    
       respond_to do |format|
-        format.html { redirect_to weights_url }
-        # format.js { render layout: false }
-      end
-    end
+        if @weight.user == current_user
+          if @weight.destroy
+            format.html { redirect_to :back,  notice: "weight was deleted"}
+            format.js { render layout: false }
+          end
+        else
+          format.html { redirect_to :back,  notice: "You cannot delete other users weights"}
+        end
+      end    
   end
 
 
@@ -63,6 +69,6 @@ class WeightsController < ApplicationController
     @weight = Weight.find(params[:id])
   end
   def weight_params
-    params.require(:weight).permit(:date, :weight, :pic, :attachment)
+    params.require(:weight).permit(:date, :weight, :pic) #:attachment
   end
 end
