@@ -9,7 +9,7 @@ group :development do
   gem 'pry'
 end
 
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 # Use HAML
 gem 'haml-rails'
 gem 'haml'
