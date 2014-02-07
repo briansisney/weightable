@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.0.0'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -7,6 +8,8 @@ group :development do
   gem 'hirb'
   gem 'pry'
 end
+
+gem 'rails_12factor'
 # Use HAML
 gem 'haml-rails'
 gem 'haml'
