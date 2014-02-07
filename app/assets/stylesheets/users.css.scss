@@ -81,11 +81,13 @@ h2{
     border-radius: 5px;
   }
    button, button:hover, button:focus, .button:hover, .button:focus{
-    background-color: white;
-    color:#ED3812;
-    border: 1px solid white;
+    background-color: #ED3812;
+    color:white;
+    border: 1px solid #ED3812;
     margin: 5px;
     border-radius: 5px;
+    // height: 20px;
+    // width: 40px;
   }
   #chart-box{
   background-color: white;

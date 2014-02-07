@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20131223175330) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: true do |t|
     t.string   "comment"
     t.integer  "weight_id"
@@ -22,9 +25,9 @@ ActiveRecord::Schema.define(version: 20131223175330) do
     t.datetime "updated_at"
   end
 
-  add_index "comments", ["friend_id"], name: "index_comments_on_friend_id"
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
-  add_index "comments", ["weight_id"], name: "index_comments_on_weight_id"
+  add_index "comments", ["friend_id"], name: "index_comments_on_friend_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+  add_index "comments", ["weight_id"], name: "index_comments_on_weight_id", using: :btree
 
   create_table "friendships", force: true do |t|
     t.integer  "user_id"
@@ -54,8 +57,8 @@ ActiveRecord::Schema.define(version: 20131223175330) do
     t.string   "last_sign_in_ip"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "weights", force: true do |t|
     t.string   "date"
@@ -66,6 +69,6 @@ ActiveRecord::Schema.define(version: 20131223175330) do
     t.datetime "updated_at"
   end
 
-  add_index "weights", ["user_id"], name: "index_weights_on_user_id"
+  add_index "weights", ["user_id"], name: "index_weights_on_user_id", using: :btree
 
 end

@@ -23,13 +23,14 @@ gem 'remotipart', '~> 1.2'
 gem 'carrierwave'
 gem 'rmagick'
 
-gem "fog", "~> 1.3.1"
+gem "fog", "~> 1.19.0"
+gem "unf", "~> 0.1.3"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use pg as the database for Active Record and Heroku
+gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

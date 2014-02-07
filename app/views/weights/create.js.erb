@@ -1,6 +1,11 @@
 (function () {
-  var weightHtml = "<%= j render(partial: 'weight', locals: { weight: @weight }) %>";
-  $('.weights').prepend(weightHtml);
+  var weightHtml = "<%= j render(partial: 'weight', locals: { weight: @weight, comment:@comment }) %>";
+  console.log(weightHtml);
+  $('.weights').prepend(weightHtml).find('.weight_button').click( function (e) {
+    e.preventDefault();
+    $(this).closest('.form').children('.form_div').toggleClass('show_form');
+  // $(this).toggleClass('hide')
+  });;
   $('#weight_weight').val("");
 
   

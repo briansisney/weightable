@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.html { redirect_to :back, notice: 'comment was successfully created.' }
-        format.js { render layout: false }
+        format.js { render layout: false, :locals => {weight_id: params[:weight_id]} }
       else
         format.html { render action: 'new' }
       end

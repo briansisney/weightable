@@ -35,6 +35,7 @@ class WeightsController < ApplicationController
 
   def create
     @weight = Weight.new(weight_params)
+    @comment = Comment.new()
 
     @weight.user = current_user
     respond_to do |format|

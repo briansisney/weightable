@@ -14,15 +14,17 @@
           %span.weight-num #{weight.user.goal}
         .weight
           Date: #{weight.date} 
-  .weight-box-comments
+  %br
+  %br
+  
+  .comment-box
+    Comments:
+    %br 
     .form
       %button.weight_button Enter comment
       .form_div
-        = render "comments/form", weight: weight
-    -unless weight.comments.first.nil?
-      .comment-box
-        Comments:
-        %br 
-        - weight.comments.each do |comment|
-          = render "weights/comment", comment: comment
-    = render "weights/editting", weight: weight
+        = render "comments/form", weight: weight, comment: @comment
+    .weight-box-comments    
+      - weight.comments.reverse.each do |comment|
+        = render "weights/comment", comment: comment
+  = render "weights/editting", weight: weight
