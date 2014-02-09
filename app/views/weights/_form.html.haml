@@ -2,8 +2,8 @@
   .field
     = f.label :weight
     = f.number_field :weight
-    / = f.label :pic
-    / = f.file_field :pic
+    = f.label :pic
+    = f.file_field :pic
     = f.hidden_field :date, value: Date.today.to_time.strftime("%A, %m/%d/%y")
   .actions
     = f.submit 'Submit'

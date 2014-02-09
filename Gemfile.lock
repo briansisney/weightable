@@ -195,7 +195,7 @@ DEPENDENCIES
   pry
   rails (= 4.0.2)
   rails_12factor
-  remotipart (~> 1.2)
+  remotipart (~> 1.2.1)
   riotjs-rails (~> 0.9.5)
   rmagick
   sass-rails (~> 4.0.0)

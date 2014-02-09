@@ -22,7 +22,7 @@ gem 'devise'
 
 gem "riotjs-rails", "~> 0.9.5"
 
-gem 'remotipart', '~> 1.2'
+gem "remotipart", "~> 1.2.1"
 gem 'carrierwave'
 gem 'rmagick'
 

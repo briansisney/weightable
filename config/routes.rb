@@ -1,7 +1,7 @@
 Weightable::Application.routes.draw do
   root 'users#index'
 
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
 
   resources :weights do
     resources :comments
