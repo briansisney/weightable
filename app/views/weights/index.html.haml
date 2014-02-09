@@ -8,6 +8,6 @@
         = render 'weights/form'
 .row
   .large-6.large-centered.columns.weights.backs
-    - @weights.reverse.each do |weight|
+    - @weights.each do |weight|
       = render "weight", weight: weight
       
