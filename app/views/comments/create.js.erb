@@ -1,5 +1,5 @@
 (function () {
-  var commentHTML = "<%= j render(partial: 'weights/comment', locals: { comment: @comment }) %>";
+  var commentHTML = "<%= j render(partial: 'comments/comment', locals: { comment: @comment }) %>";
   $('.weightid[data-id="<%= params[:weight_id] %>"]').find('.weight-box-comments').append(commentHTML);
   $('#comment_comment').val("");
 

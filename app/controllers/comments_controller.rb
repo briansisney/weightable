@@ -50,16 +50,17 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    if @comment.user == current_user || @comment.weight.user == current_user
+    @comment = Comment.find(params[:id])
+    # if @comment.user == current_user || @comment.weight.user == current_user
       respond_to do |format|  
         if @comment.destroy
-          format.html { redirect_to weights_path,  notice: "weight was deleted"}
+          format.html { redirect_to :back,  notice: "weight was deleted"}
           format.js { render layout: false }
         else 
           format.html { redirect_to  :back, notice: "weight was not deleted"}
         end
       end
-    end
+    # end
   end
 
   private

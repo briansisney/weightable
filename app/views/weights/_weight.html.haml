@@ -26,5 +26,5 @@
         = render "comments/form", weight: weight, comment: @comment
     .weight-box-comments    
       - weight.comments.reverse.each do |comment|
-        = render "weights/comment", comment: comment
+        = render "comments/comment", comment: comment
   = render "weights/editting", weight: weight

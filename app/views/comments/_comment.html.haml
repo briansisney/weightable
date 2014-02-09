@@ -1,4 +1,4 @@
-.singlecomment
+.singlecomment.com{"data-id" => comment.id}
   .commenter
     = link_to "#{comment.user.name}:", comment.user
   .commentpost
@@ -9,7 +9,7 @@
       = link_to "Edit", edit_weight_comment_path(comment.weight.id, comment.id)
       / make a button
       =" | "
-      =link_to 'X', weight_comment_path(comment.weight.id, comment.id), method: :delete
+      =link_to 'X', weight_comment_path(comment.weight.id, comment.id), method: :delete, remote: true
     -elsif comment.weight.user == current_user
       %br
-      =link_to 'X', weight_comment_path(comment.weight.id, comment.id), method: :delete
+      =link_to 'X', weight_comment_path(comment.weight.id, comment.id), method: :delete, remote: true
