@@ -7,7 +7,8 @@ class WeightsController < ApplicationController
   end
 
   def index
-    @weights = Weight.where(user_id: current_user.friends).order(created_at: :desc)
+    single_call = Weight.includes(:comments, :user)
+    @weights = single_call.where(user_id: current_user.friends).order(created_at: :desc)
     @weight = Weight.new
     @comment = Comment.new
     # @comments = Comments.all

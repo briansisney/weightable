@@ -1,27 +1,13 @@
 %h1.text-center
   Other Users
 .row
-  .large-6.large-centered.columns
-    %table
-      %thead
-        %tr
-          %th Name
-          %th pic
-          %th goal
-          %th Add Friend
-          
-      %tbody
-        - @users.each do |user|
-          -next if user == current_user
-          %tr
-            %td= link_to user.name, user
-            %td.large-3
-              %img{src: user.pic_url}
-            %td= user.goal
-            -if current_user.friends.include?(user)
-              %td= link_to "Remove Friend", friendship_path(user.id), method: :delete
-            -else
-              %td= link_to "Add Friend", friendships_path(:friend_id => user), method: :post
-            / %td= link_to "Accept Friend-not done", friendships_path(:friend_id => user), :method => :post
-            / %td= link_to "Add Friend-not done", friendships_path(:friend_id => user), :method => :post
-
+  - @users.each do |user|
+    -next if user == current_user
+    .prof.backs
+      %img{src: user.pic_url(:medium)}
+      %h4= link_to user.name, user
+      %h6= "Goal: #{user.goal}" 
+      -if current_user.friends.include?(user)
+        = link_to "Remove Friend", friendship_path(user.id), method: :delete
+      -else
+        %td= link_to "Add Friend", friendships_path(:friend_id => user), method: :post

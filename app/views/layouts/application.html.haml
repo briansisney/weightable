@@ -30,6 +30,8 @@
                 %li
                   = link_to 'Weights', weights_path
                 %li
+                  = link_to 'Friends', root_path
+                %li
                   = link_to current_user.name, user_url(current_user)
                 %li
                   = link_to 'Edit Profile', edit_user_registration_path
@@ -46,6 +48,6 @@
       .row
         = yield
         = javascript_include_tag "application"
-        = javascript_include_tag :defaults
+        / # = javascript_include_tag :defaults
         = javascript_include_tag "vendor/custom.modernizr"
           
