@@ -9,7 +9,10 @@ body {
 .top-bar-section ul{
   background: image_url('old_map/old_map.png');
 }
-
+.text-center{
+  text-align: center;
+  margin: auto;
+}
 
 .top-bar-section li a:not(.button), .top-bar-section ul li > a{
   background: none;
@@ -99,5 +102,5 @@ h2{
 }
 .prof{
   width: 200px;
-  float: left;
+  display: inline-block;
 }

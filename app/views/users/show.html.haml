@@ -31,12 +31,12 @@
         %button.weight_button Enter new weight
         .form_div
           =render "weights/form"
-  .large-6.columns.backs
-    %h3 Past Weights
-    #chart-box
-      %canvas#lineChart{height: "400", width: "500"}
-  .large-9.columns
-    .row
+  .large-6.columns.no-right-pad
+    .backs.no-margin
+      %h3 Past Weights
+      #chart-box
+        %canvas#lineChart{height: "400", width: "450"}
+      
       %h2 Friends
       %ul
         - for friendship in @user.friendships
@@ -48,11 +48,10 @@
       %ul
         - for user in @user.inverse_friends
           %li= h user.name
-  .large-9.columns
-    .row
-      .backs
-        - @weights.each do |weight|
-          = render "weights/weight", weight: weight
-
+  .large-6.columns.no-right-pad
+    .backs.no-margin
+      - @weights.each do |weight|
+        = render "weights/weight", weight: weight
+    
 = javascript_include_tag "Chart.js"
 =render "linechart"
