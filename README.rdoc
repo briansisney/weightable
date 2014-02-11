@@ -1,16 +1,17 @@
-Weightable
+== Weightable
 ==========
 
 Weightable allows users to track his or her weight, upload photos, and receive encouragement from friends.
 
 
 Inside Weightable I used the following technologies:
-•	Rails 4.02
-•	PostgreSQL Database
-•	Chart.js to visualize data
-•	Zurb-Foundation Framework
-•	Devise for user authentication
-•	Amazon S3 for remote image storage
-•	jQuery JavaScript library
-•	Remotipart to enable AJAX file uploads with jQuery 
+* Rails 4.02
+* PostgreSQL Database
+* Chart.js to visualize data
+* Zurb-Foundation Framework
+* Devise for user authentication
+* Amazon S3 for remote image storage
+* jQuery JavaScript library
+* Remotipart to enable AJAX file uploads with jQuery 
+
 
