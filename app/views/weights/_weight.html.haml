@@ -2,7 +2,11 @@
 .weight-box.weightid{"data-id" => weight.id}
   .profile-info.columns.large-12
     .first-inner-box.large-3
-      .weight-box-profile_pic= image_tag weight.user.pic
+      .weight-box-profile_pic
+        -if weight.user.pic.url.nil?
+          =image_tag("mickey-mouse-large.jpg")
+        -else
+          =image_tag weight.user.pic
       .spacing
     .inner-box.large-6
       .weight-box-name= link_to weight.user.name, user_path(weight.user.id)
@@ -15,8 +19,9 @@
           %span.weight-num #{weight.user.goal}
         .weight
           Date: #{weight.date} 
-        -if weight.pic  
+        -if weight.pic 
           %img{src: weight.pic_url(:medium)}
+        
   %br
   %br
   

@@ -2,7 +2,10 @@
 .row
   .backs.large-12.columns
     .large-3.columns
-      %img{src: @user.pic_url}
+      -if @user.pic_url.nil?
+        =image_tag("mickey-mouse-large.jpg")
+      -else
+        %img{src: @user.pic_url}   
     .large-9.columns
       .row
         .large-3.columns
@@ -18,12 +21,15 @@
         .large-3.columns
           %h4.subheader Goal Weight
         .large-9.columns
-          %h3= @user.goal
+          -if @user.goal
+            %h3= @user.goal
+          -elsif current_user == @user
+            %h3=link_to "add goal weight", edit_user_registration_path
       .row
         .large-3.columns
           %h4.subheader BMI
         .large-9.columns
-          %h3="#{@bmi} - #{@bmi_translation}"   
+          %h3="#{@bmi} #{@bmi_translation}"   
   .large-6.columns.no-right-pad
     .backs.no-margin
       %h3 Past Weights

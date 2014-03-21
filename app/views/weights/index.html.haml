@@ -8,6 +8,9 @@
         = render 'weights/form'
 .row
   .large-6.large-centered.columns.weights.backs
-    - @weights.each do |weight|
-      = render "weight", weight: weight
-      
+    -if @weights.empty?
+      =link_to "Add Friends", root_path
+    -else
+      - @weights.each do |weight|
+        = render "weight", weight: weight
+        

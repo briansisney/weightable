@@ -5,7 +5,10 @@
     - @users.each do |user|
       -next if user == current_user
       .prof.backs
-        %img{src: user.pic_url(:medium)}
+        -if user.pic_url.nil?
+          =image_tag("mickey-mouse-large.jpg")
+        -else
+          %img{src: user.pic_url}  
         %h4= link_to user.name, user
         %h6= "Goal: #{user.goal}" 
         -if current_user.friends.include?(user)

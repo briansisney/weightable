@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   mount_uploader :pic, ImageUploader
 
   def self.bmi(user)
-    if user.weights.last && user.height_feet && user.height_in
+    if user.weights.last && !user.height_feet.empty? && !user.height_in.empty?
       current_weight=user.weights.last.weight.to_f
       height_in_inches = (user.height_feet.to_f*12)+user.height_in.to_f
       ((current_weight*703)/(height_in_inches**2)).round(2)
@@ -32,15 +32,15 @@ class User < ActiveRecord::Base
   def self.bmi_translate(bmi)
      case bmi
        when 0.0..18.4
-        "underweight"
+        "- underweight"
        when 18.5..24.9
-        "normal weight"
+        "- normal weight"
        when 25.0..29.9
-        "overweight"
+        "- overweight"
        when 30.0..100
-        "obese"
+        "- obese"
        else 
-        "n/a"
+        ""
      end
   end
 
