@@ -1,28 +1,19 @@
-== README
+== Weightable
+==========
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+== hellobrian
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Weightable allows users to track his or her weight, upload photos, and receive encouragement from friends.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Inside Weightable I used the following technologies:
+* Rails 4.02
+* PostgreSQL Database
+* Chart.js to visualize data
+* Zurb-Foundation Framework
+* Devise for user authentication
+* Amazon S3 for remote image storage
+* jQuery JavaScript library
+* Remotipart to enable AJAX file uploads with jQuery
+
+
